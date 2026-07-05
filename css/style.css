@@ -710,3 +710,167 @@ h3.disp-sm{font-family:var(--f-head);font-size:clamp(1.25rem,2.5vw,1.875rem);fon
   .transport-grid{grid-template-columns:1fr}
   .price-grid{gap:.75rem}
 }
+
+/* ================================================
+   MOBILE OPTIMIZATIONS — phones & tablets
+   ALL rules below are inside breakpoint guards.
+   Desktop layout is pixel-identical; untouched.
+   ================================================ */
+
+/* ----
+   FIX 1 & 2 · Hero — opening hours overlay + stats row
+   ----
+   Problem: .hero__times (opening hours) is position:absolute;top:50%
+   which puts it dead-centre over the headline on narrow screens.
+   Problem: .hero__bottom (stats) is position:absolute;bottom:2rem but
+   the hero content (logo + text + buttons) can overlap it on phones.
+   Solution: switch hero to flex-column so hero__bottom becomes a normal
+   flow child, sitting naturally below the content at the bottom.
+   Hours are hidden (visible in the hamburger drawer and footer).
+   ---- */
+@media(max-width:768px){
+  /* Opening-hours panel: hide to prevent overlap (shown in drawer + footer) */
+  .hero__times{display:none}
+
+  /* Shrink logo so headline/sub/buttons fit comfortably */
+  .hero__logo-img{width:clamp(150px,48vw,230px)}
+
+  /* Reduce top padding so content has room */
+  .hero__content{padding-block:max(5rem,13vh) 1.25rem}
+
+  /* Make hero a flex column so stats flow naturally below buttons */
+  .hero{flex-direction:column}
+
+  /* Pull stats bar out of absolute positioning into normal flow */
+  .hero__bottom{
+    position:relative;
+    inset:auto;
+    padding:1rem var(--px) 2.25rem;
+    justify-content:flex-start;
+    align-items:flex-start;
+    gap:.75rem;
+    /* Override entrance animation that sets opacity:0 initially —
+       position change makes translate-based animation look wrong */
+    opacity:1;
+    animation:none;
+  }
+
+  /* Stats text: smaller, 2-col wrap (pairs like 2×2 on very narrow) */
+  .hero__stats-line{
+    font-size:.7rem;
+    gap:.35rem .6rem;
+    line-height:1.5;
+  }
+  .hero__stats-sep{height:.65em}
+}
+
+/* ----
+   FIX 3 · "Trénuj tam, kde záleží na detailu" section
+   ----
+   background-attachment:fixed is essentially broken on iOS Safari and
+   many Android browsers — the background doesn't scroll with the page,
+   rendering the photo invisible or misaligned.
+   Fix: switch to scroll; ensure cover + good crop position.
+   ---- */
+@media(max-width:768px){
+  .s--intro{
+    background-attachment:scroll;
+    background-size:cover;
+    background-position:center 35%;
+  }
+}
+
+/* ----
+   FIX 4 · "1 minuta od Moravského náměstí" — map not visible
+   ----
+   The iframe inside .map-box--live uses height="100%" which requires
+   the parent to have a *definite* height. aspect-ratio alone is not
+   treated as definite by all engines, so the iframe collapses.
+   Fix: give the live map box an explicit pixel height on mobile.
+   ---- */
+@media(max-width:768px){
+  .map-box--live{
+    aspect-ratio:unset;
+    height:300px;
+  }
+  .map-box--live iframe{
+    height:100%;
+    min-height:300px;
+  }
+}
+
+/* ----
+   FIX 5 · "Začni dnes" CTA band — phone number clipped, buttons side-by-side
+   ----
+   The outer flex row keeps text + button-group in one row even on narrow
+   screens; combined with flex-shrink:0 on the button group (index.html)
+   and white-space:nowrap on .btn, the phone number spills/clips.
+   Fix: force the band to a column, button group to a column, full width.
+   ---- */
+@media(max-width:768px){
+  /* Stack heading text and button group vertically */
+  .cta-band__inner{
+    flex-direction:column !important;
+    align-items:stretch !important;
+    gap:1.5rem !important;
+  }
+  /* Button group — override inline display:flex and flex-shrink:0 */
+  .cta-band .sd2{
+    display:flex !important;
+    flex-direction:column !important;
+    gap:.75rem !important;
+    flex-shrink:1 !important;
+    width:100% !important;
+  }
+  /* Each button — full width, centred, never clipped */
+  .cta-band .btn{
+    width:100% !important;
+    justify-content:center !important;
+    text-align:center;
+    /* white-space:nowrap kept — full width means no overflow */
+  }
+}
+
+/* ----
+   FIX 6 · Hamburger / drawer — menu does not open
+   ----
+   Root cause: .nav__veil gets display:block via the existing 768px rule
+   (see above) but keeps opacity:0. Being position:fixed;inset:0;z-index:104
+   it covers the ENTIRE viewport — above the nav (z-index:100). Every click
+   lands on the invisible veil, not on the burger button underneath, so
+   openD() is never called. The veil's own click handler calls closeD()
+   which is a no-op when the drawer is already closed.
+   Fix: pointer-events:none while the veil is invisible; restore on .is-open.
+   ---- */
+@media(max-width:768px){
+  .nav__veil{pointer-events:none}
+  .nav__veil.is-open{pointer-events:auto}
+}
+
+/* ---- Tablet range (769px–1024px) supplementary fixes ---- */
+@media(min-width:769px) and (max-width:1024px){
+  /* Map box needs height on tablets too — split goes 1-col at 1024px */
+  .map-box--live{
+    aspect-ratio:unset;
+    height:360px;
+  }
+  .map-box--live iframe{height:100%}
+
+  /* CTA band: keep stacking on small tablets */
+  .cta-band__inner{
+    flex-direction:column !important;
+    align-items:stretch !important;
+    gap:1.5rem !important;
+  }
+  .cta-band .sd2{
+    display:flex !important;
+    flex-direction:column !important;
+    gap:.75rem !important;
+    width:100% !important;
+  }
+  .cta-band .btn{
+    width:100% !important;
+    justify-content:center !important;
+    text-align:center;
+  }
+}
