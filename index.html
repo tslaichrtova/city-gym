@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CITY GYM Brno — Největší posilovna v centru</title>
+<meta name="description" content="City Gym Brno – 700 m² nejmodernějšího vybavení v centru Brna. 60 posilovacích + 16 cardio strojů, zóna pro ženy, osobní trenéři. Běhounská 22/24.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<noscript><style>.sr{opacity:1;transform:none}</style></noscript>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="wrap">
+    <div class="nav__row">
+      <a href="index.html" class="nav__logo">
+        <img src="assets/city-gym-logo.png?v=6" alt="City Gym Brno">
+      </a>
+      <nav aria-label="Hlavní menu">
+        <ul class="nav__menu">
+          <li><a href="index.html">Domů</a></li>
+          <li><a href="posilovna.html">Posilovna</a></li>
+          <li><a href="zona-pro-zeny.html">Zóna pro ženy</a></li>
+          <li><a href="galerie.html">Galerie</a></li>
+          <li><a href="cenik.html">Ceník</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </nav>
+      <span class="nav__time">Po–Pá <b>6:30–22:00</b> &nbsp;·&nbsp; So–Ne <b>8:00–20:00</b></span>
+      <a href="cenik.html" class="btn btn-p">Ceník</a>
+      <button class="nav__burger" aria-label="Otevřít menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+<div class="nav__veil" aria-hidden="true"></div>
+<nav class="nav__drawer" aria-label="Mobilní menu">
+  <a href="index.html">Domů</a>
+  <a href="posilovna.html">Posilovna</a>
+  <a href="zona-pro-zeny.html">Zóna pro ženy</a>
+  <a href="galerie.html">Galerie</a>
+  <a href="cenik.html">Ceník</a>
+  <a href="kontakt.html">Kontakt</a>
+  <div class="nav__drawer-info">
+    <p><b>Po–Pá</b>&ensp;6:30 – 22:00<br><b>So–Ne</b>&ensp;8:00 – 20:00</p>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" aria-label="Úvod">
+  <div class="hero__bg" aria-hidden="true"></div>
+  <!-- Nahradit: <video class="hero__video" autoplay muted loop playsinline poster="assets/hero-poster.jpg"><source src="assets/hero.mp4" type="video/mp4"></video> -->
+  <div class="hero__overlay" aria-hidden="true"></div>
+  <div class="hero__content">
+    <div class="wrap">
+      <img src="assets/city-gym-logo.png?v=6" alt="City Gym Brno" class="hero__logo-img">
+      <p class="hero__sub">Největší posilovna v centru Brna. 700 m² nejmodernějšího vybavení — a výhled na park.</p>
+      <div class="hero__acts">
+        <a href="cenik.html" class="btn btn-p btn-lg">Ceník &amp; vstup</a>
+        <a href="posilovna.html" class="btn btn-g btn-lg">Prozkoumat posilovnu</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero__times" aria-label="Otevírací doba">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 15.5 14"/>
+    </svg>
+    <div>
+      <div class="hero__times-row"><span class="hero__times-day">Po–Pá</span><span class="hero__times-hour">6:30–22:00</span></div>
+      <div class="hero__times-row"><span class="hero__times-day">So–Ne</span><span class="hero__times-hour">8:00–20:00</span></div>
+    </div>
+  </div>
+  <div class="hero__bottom">
+    <p class="hero__stats-line" aria-label="Fakta o posilovně">
+      <span><span class="ctr" data-target="700">700</span> m² plochy</span>
+      <span class="hero__stats-sep" aria-hidden="true"></span>
+      <span><span class="ctr" data-target="60">60</span>+ posilovacích strojů</span>
+      <span class="hero__stats-sep" aria-hidden="true"></span>
+      <span>16 cardio strojů s výhledem na park</span>
+    </p>
+    <a href="#content-start" class="hero__scroll" aria-label="Přejít na obsah">
+      <span>Scroll</span>
+      <span class="hero__scroll-line"></span>
+    </a>
+  </div>
+</section>
+
+<!-- INTRO / PROČ MY -->
+<section id="content-start" class="s s--intro" aria-labelledby="intro-h">
+  <div class="intro__overlay" aria-hidden="true"></div>
+  <div class="wrap" style="position:relative;z-index:1">
+    <div class="intro__content">
+      <p class="eyebrow sr">O nás</p>
+      <h2 class="disp sr sd1" id="intro-h">
+        Trénuj tam, kde<br>
+        <span class="u-draw" style="color:var(--blue)">záleží na detailu.</span>
+      </h2>
+      <p class="body-lg sr sd2" style="color:var(--txt-m);margin-top:1.5rem;margin-bottom:2.5rem">
+        City Gym stojí přímo v srdci Brna – 1 minutu od Moravského náměstí, nad pasáží Typos. Investovali jsme do nejkvalitnějšího vybavení, protože věříme, že prostředí, ve kterém trénuješ, dělá velký rozdíl.
+      </p>
+      <ul class="feat-list sr sd3">
+        <li class="feat-item">
+          <span class="feat-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1E50C8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          <span class="feat-text"><strong>Jedno z nejnovějších vybavení v Brně</strong>Stroje prémiových značek, pravidelně obnovované.</span>
+        </li>
+        <li class="feat-item">
+          <span class="feat-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1E50C8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          <span class="feat-text"><strong>Samostatná zóna pro ženy</strong>Kompletně vybavená, klidná a soukromá.</span>
+        </li>
+        <li class="feat-item">
+          <span class="feat-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1E50C8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          <span class="feat-text"><strong>Centrum Brna, snadná dostupnost</strong>MHD zastávka 30 m, parkoviště 50 m.</span>
+        </li>
+        <li class="feat-item">
+          <span class="feat-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1E50C8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          <span class="feat-text"><strong>Výhled na park z cardio zóny</strong>Trénink s příjemným výhledem na zeleň.</span>
+        </li>
+      </ul>
+      <div style="margin-top:2.5rem" class="sr sd4">
+        <a href="posilovna.html" class="btn btn-p btn-lg">Prozkoumat posilovnu</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ŽENSKÁ ZÓNA HIGHLIGHT -->
+<section class="s s--dk2" aria-labelledby="women-h">
+  <div class="wrap">
+    <div class="split" style="gap:5rem">
+      <div style="order:2">
+        <div style="aspect-ratio:4/3;border-radius:6px;overflow:hidden;background:var(--dark3);position:relative" class="sr fr">
+          <div style="position:absolute;inset:0;background:linear-gradient(135deg,#1a1e34,#141824)"></div>
+          <div style="position:absolute;inset:0;background-image:radial-gradient(circle at 30% 40%,rgba(30,80,200,.08),transparent 60%)"></div>
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:.7rem;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.18)">Foto ženské zóny</div>
+        </div>
+      </div>
+      <div style="order:1">
+        <p class="eyebrow sr">Zóna pro ženy</p>
+        <h2 class="disp sr sd1" id="women-h">Prostor jen<br>pro vás.</h2>
+        <p class="body-lg txt-m sr sd2" style="margin-top:1.5rem;margin-bottom:2rem">Chápeme, že ne každá žena chce cvičit ve sdíleném prostoru. Proto jsme vytvořili kompletně vybavenou zónu výhradně pro ženy — s vlastním vstupem a vším potřebným vybavením.</p>
+        <ul class="feat-list sr sd3">
+          <li class="feat-item">
+            <span class="feat-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2D65E8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            <span class="feat-text">Výhradně pro ženy — žádné narušení soukromí</span>
+          </li>
+          <li class="feat-item">
+            <span class="feat-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2D65E8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            <span class="feat-text">Kompletní vybavení — stroje, volné váhy, cardio</span>
+          </li>
+          <li class="feat-item">
+            <span class="feat-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2D65E8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            <span class="feat-text">Ženské trenérky pro konzultaci tréninku</span>
+          </li>
+          <li class="feat-item">
+            <span class="feat-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2D65E8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            <span class="feat-text">Klidná atmosféra zaměřená na výkon i pohodu</span>
+          </li>
+        </ul>
+        <div style="margin-top:2.5rem" class="sr sd4">
+          <a href="zona-pro-zeny.html" class="btn btn-p btn-lg">Ženská zóna podrobně</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLUŽBY -->
+<section class="s s--lt" aria-labelledby="srv-h">
+  <div class="wrap">
+    <div style="max-width:600px;margin-bottom:4rem">
+      <p class="eyebrow eyebrow-dk sr">Vše pod jednou střechou</p>
+      <h2 class="disp sr sd1" id="srv-h">Víc než jen posilovna.</h2>
+    </div>
+    <div class="srv-grid">
+      <div class="srv-card sr sd1">
+        <div class="srv-card__body">
+          <h3 class="srv-card__title">Bar s občerstvením</h3>
+          <p class="srv-card__text">Iontové nápoje, protein shaky (Nutrend, Ketodiet) a voda zdarma. Doplňte energii přímo v City Gym.</p>
+        </div>
+        <div class="srv-card__icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1E50C8" stroke-width="0.5">
+            <path d="M6.5 6.5h11M6.5 12h11M6.5 17.5h11"/><rect x="3" y="3" width="18" height="18" rx="2"/>
+          </svg>
+        </div>
+      </div>
+      <div class="srv-card sr sd2">
+        <div class="srv-card__body">
+          <h3 class="srv-card__title">Osobní trenéři</h3>
+          <p class="srv-card__text">Kondiční a osobní trenéři připraveni sestavit váš tréninkový plán a provést vás správnou technikou.</p>
+        </div>
+        <div class="srv-card__icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1E50C8" stroke-width="0.5">
+            <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+          </svg>
+        </div>
+      </div>
+      <div class="srv-card sr sd3">
+        <div class="srv-card__body">
+          <h3 class="srv-card__title">EMS systém</h3>
+          <p class="srv-card__text">Elektrosvalová stimulace pro efektivnější trénink v kratším čase. Konzultace na recepci.</p>
+        </div>
+        <div class="srv-card__icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1E50C8" stroke-width="0.5">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+          </svg>
+        </div>
+      </div>
+      <div class="srv-card sr sd1">
+        <div class="srv-card__body">
+          <h3 class="srv-card__title">Tréninkové plány</h3>
+          <p class="srv-card__text">Individuálně sestavené tréninkové plány od zkušených trenérů přizpůsobené vašim cílům.</p>
+        </div>
+        <div class="srv-card__icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1E50C8" stroke-width="0.5">
+            <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/>
+          </svg>
+        </div>
+      </div>
+      <div class="srv-card sr sd2">
+        <div class="srv-card__body">
+          <h3 class="srv-card__title">Parkoviště za zvýhodněnou cenu</h3>
+          <p class="srv-card__text">Parkovací dům JD (Janáčkovo divadlo) vzdálený 50 m za poloviční cenu pro klienty City Gym.</p>
+        </div>
+        <div class="srv-card__icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1E50C8" stroke-width="0.5">
+            <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/>
+          </svg>
+        </div>
+      </div>
+      <div class="srv-card sr sd3">
+        <div class="srv-card__body">
+          <h3 class="srv-card__title">Slevy pro studenty a seniory</h3>
+          <p class="srv-card__text">Zvýhodněné permanentky přenosné i nepřenosné. Podrobnosti a aktuální ceník na recepci.</p>
+        </div>
+        <div class="srv-card__icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#1E50C8" stroke-width="0.5">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5 19.79 19.79 0 01.06 2.86 2 2 0 012 .68h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POLOHA -->
+<section class="s s--dk" aria-labelledby="loc-h">
+  <div class="wrap">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center" class="split">
+      <div>
+        <p class="eyebrow sr">Poloha</p>
+        <h2 class="disp sr sd1" id="loc-h">1 minuta od Moravského náměstí.</h2>
+        <p class="body-lg txt-m sr sd2" style="margin-top:1.5rem;margin-bottom:2.5rem">Jsme v centru Brna na Běhounské 22/24 — nad pasáží Typos, u klubu Caribic. Dostupní MHD i autem, 5 minut od hlavního nádraží.</p>
+        <div style="display:flex;flex-direction:column;gap:1rem" class="sr sd3">
+          <div style="display:flex;align-items:flex-start;gap:1rem">
+            <span style="flex-shrink:0;margin-top:2px;color:var(--blue)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg>
+            </span>
+            <div>
+              <div style="font-size:.72rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--txt-m);margin-bottom:.2rem">Adresa</div>
+              <div>Běhounská 22/24, 602 00 Brno – střed</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:1rem">
+            <span style="flex-shrink:0;margin-top:2px;color:var(--blue)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+            </span>
+            <div>
+              <div style="font-size:.72rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--txt-m);margin-bottom:.2rem">MHD</div>
+              <div style="color:var(--txt);font-size:.9375rem">Česká (šalina 3, 5, 6, 9) · Janáčkovo divadlo (bus 67)</div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:2.5rem" class="sr sd4">
+          <a href="kontakt.html" class="btn btn-bo btn-lg">Jak se k nám dostat</a>
+        </div>
+      </div>
+      <div class="sr fr">
+        <div class="map-box map-box--live">
+          <iframe
+            src="https://maps.google.com/maps?q=Běhounská+22/24,+Brno,+Czech+Republic&output=embed&hl=cs"
+            width="100%" height="100%"
+            style="border:0;display:block;"
+            allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="City Gym Brno — Běhounská 22/24">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band" aria-label="Výzva k akci">
+  <div class="wrap">
+    <div class="cta-band__inner" style="display:flex;align-items:center;justify-content:space-between;gap:3rem;flex-wrap:wrap">
+      <div class="sr">
+        <h2 style="font-family:var(--f-head);font-size:clamp(2rem,5vw,3.5rem);font-weight:700;letter-spacing:-.03em;line-height:1.05;margin-bottom:.75rem">
+          Začni dnes.
+        </h2>
+        <p style="font-size:1.0625rem;color:rgba(255,255,255,.8);max-width:38ch">
+          Přijď na recepci nebo nám zavolej — rádi zodpovíme všechny dotazy.
+        </p>
+      </div>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;flex-shrink:0" class="sr sd2">
+        <a href="cenik.html" class="btn btn-lg" style="background:#fff;color:var(--blue);font-family:var(--f-head);font-size:.875rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:3px;padding:.9rem 2rem;transition:all .25s var(--ease)">
+          Zobrazit ceník
+        </a>
+        <a href="tel:+420603993197" class="btn btn-lg" style="background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35);font-family:var(--f-head);font-size:.875rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:3px;padding:.9rem 2rem;transition:all .25s var(--ease)">
+          +420 603 993 197
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__top">
+      <div>
+        <div class="footer__logo">
+          <img src="assets/city-gym-logo.png?v=6" alt="City Gym Brno">
+        </div>
+        <p class="footer__tagline">Největší posilovna v centru Brna. 700 m² moderního vybavení, samostatná zóna pro ženy a špičkový personál.</p>
+      </div>
+      <div>
+        <h4 class="footer__col-h">Navigace</h4>
+        <ul class="footer__links">
+          <li><a href="index.html">Domů</a></li>
+          <li><a href="posilovna.html">Posilovna</a></li>
+          <li><a href="zona-pro-zeny.html">Zóna pro ženy</a></li>
+          <li><a href="galerie.html">Galerie</a></li>
+          <li><a href="cenik.html">Ceník</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer__col-h">Otevírací doba</h4>
+        <div style="font-size:.875rem;color:var(--txt-m);line-height:2.1">
+          <span style="color:var(--white);font-weight:600">Pondělí – Pátek</span><br>
+          6:30 – 22:00<br>
+          <span style="color:var(--white);font-weight:600">Sobota – Neděle</span><br>
+          8:00 – 20:00
+        </div>
+      </div>
+      <div>
+        <h4 class="footer__col-h">Kontakt</h4>
+        <div class="footer__c-row">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg>
+          <p>Běhounská 22/24<br>602 00 Brno – střed</p>
+        </div>
+        <div class="footer__c-row">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5 19.79 19.79 0 01.06 2.86 2 2 0 012 .68h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          <a href="tel:+420603993197">+420 603 993 197</a>
+        </div>
+        <div class="footer__c-row">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:citygym@seznam.cz">citygym@seznam.cz</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bot">
+      <p class="footer__copy">© 2024 CITY GYM Brno. Všechna práva vyhrazena.</p>
+      <div class="footer__legal">
+        <a href="#">Ochrana osobních údajů</a>
+        <a href="#">Obchodní podmínky</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

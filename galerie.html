@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galerie — CITY GYM Brno</title>
+<meta name="description" content="Galerie City Gym Brno – prohlédněte si prostory posilovny, cardio zóny, ženské zóny a zázemí. Běhounská 22/24, centrum Brna.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .filter-bar{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:3rem}
+  .filter-btn{
+    padding:.5rem 1.125rem;font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+    border:1px solid var(--line);border-radius:3px;color:var(--txt-m);
+    background:transparent;cursor:pointer;transition:all var(--fast) var(--ease);
+  }
+  .filter-btn:hover,.filter-btn.is-active{background:var(--blue);border-color:var(--blue);color:var(--white)}
+</style>
+<noscript><style>.sr{opacity:1;transform:none}</style></noscript>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="wrap">
+    <div class="nav__row">
+      <a href="index.html" class="nav__logo"><img src="assets/city-gym-logo.png?v=6" alt="City Gym Brno"></a>
+      <nav aria-label="Hlavní menu">
+        <ul class="nav__menu">
+          <li><a href="index.html">Domů</a></li>
+          <li><a href="posilovna.html">Posilovna</a></li>
+          <li><a href="zona-pro-zeny.html">Zóna pro ženy</a></li>
+          <li><a href="galerie.html">Galerie</a></li>
+          <li><a href="cenik.html">Ceník</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </nav>
+      <span class="nav__time">Po–Pá <b>6:30–22:00</b> &nbsp;·&nbsp; So–Ne <b>8:00–20:00</b></span>
+      <a href="cenik.html" class="btn btn-p">Ceník</a>
+      <button class="nav__burger" aria-label="Otevřít menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="nav__veil"></div>
+<nav class="nav__drawer">
+  <a href="index.html">Domů</a>
+  <a href="posilovna.html">Posilovna</a>
+  <a href="zona-pro-zeny.html">Zóna pro ženy</a>
+  <a href="galerie.html">Galerie</a>
+  <a href="cenik.html">Ceník</a>
+  <a href="kontakt.html">Kontakt</a>
+  <div class="nav__drawer-info">
+    <p><b>Po–Pá</b>&ensp;6:30 – 22:00<br><b>So–Ne</b>&ensp;8:00 – 20:00</p>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="pg-hero" style="position:relative;overflow:hidden;background-image:url('assets/posilovna-galerie.jpg');background-size:cover;background-position:center;border-bottom:none">
+  <div style="position:absolute;inset:0;background:rgba(0,0,0,0.68);z-index:0"></div>
+  <div class="wrap" style="position:relative;z-index:1">
+    <p class="eyebrow sr">Prostory</p>
+    <h1 style="font-family:var(--f-head);font-size:clamp(2.5rem,7vw,5.5rem);font-weight:700;line-height:.95;letter-spacing:-.04em;max-width:12ch;margin-bottom:1.5rem;color:var(--white)" class="sr sd1">
+      Nahlédněte dovnitř.
+    </h1>
+    <p class="body-lg sr sd2" style="max-width:44ch;color:rgba(255,255,255,.8)">
+      Pořízené fotografie jsou zástupné — majitelé je brzy nahradí reálnými snímky prostor. Styl a rozložení galerie je připraven.
+    </p>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="s s--dk">
+  <div class="wrap">
+    <div class="filter-bar sr">
+      <button class="filter-btn is-active" data-filter="all">Vše</button>
+      <button class="filter-btn" data-filter="posilovna">Posilovna</button>
+      <button class="filter-btn" data-filter="zeny">Zóna pro ženy</button>
+      <button class="filter-btn" data-filter="cardio">Cardio</button>
+      <button class="filter-btn" data-filter="zazemi">Zázemí</button>
+    </div>
+
+    <div class="gal-grid">
+      <!-- Row 1 -->
+      <div class="gal-item gal-item--w sr sd1" data-cat="posilovna">
+        <div class="gal-ph gal-ph--1">
+          <!-- Nahradit: <img src="assets/gallery/gym-main-wide.jpg" alt="Hlavní sál posilovny"> -->
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1.25"><path d="M15 8a3 3 0 11-6 0 3 3 0 016 0z"/><rect x="3" y="15" width="18" height="6" rx="1"/></svg>
+          <span>Hlavní sál posilovny</span>
+        </div>
+        <div class="gal-item__over">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>
+      </div>
+      <div class="gal-item gal-item--t sr sd2" data-cat="posilovna">
+        <div class="gal-ph gal-ph--2">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1.25"><path d="M15 8a3 3 0 11-6 0 3 3 0 016 0z"/><rect x="3" y="15" width="18" height="6" rx="1"/></svg>
+          <span>Silová zóna</span>
+        </div>
+        <div class="gal-item__over">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>
+      </div>
+
+      <!-- Row 2 -->
+      <div class="gal-item sr sd1" data-cat="posilovna">
+        <div class="gal-ph gal-ph--3">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1.25"><path d="M15 8a3 3 0 11-6 0 3 3 0 016 0z"/><rect x="3" y="15" width="18" height="6" rx="1"/></svg>
+          <span>Strojová zóna</span>
+        </div>
+        <div class="gal-item__over">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>
+      </div>
+      <div class="gal-item sr sd2" data-cat="cardio">
+        <div class="gal-ph gal-ph--4">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1.25"><path d="M15 8a3 3 0 11-6 0 3 3 0 016 0z"/><rect x="3" y="15" width="18" height="6" rx="1"/></svg>
+          <span>Cardio zóna</span>
+        </div>
+        <div class="gal-item__over">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>
+      </div>
+      <div class="gal-item sr sd3" data-cat="cardio">
+        <div class="gal-ph gal-ph--5">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1.25"><path d="M15 8a3 3 0 11-6 0 3 3 0 016 0z"/><rect x="3" y="15" width="18" height="6" rx="1"/></svg>
+          <span>Výhled na park</span>
+        </div>
+        <div class="gal-item__over">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>
+      </div>
+
+      <!-- Row 3 -->
+      <div class="gal-item gal-item--t sr sd1" data-cat="zeny">
+        <div class="gal-ph gal-ph--6" style="background:linear-gradient(140deg,#161926,#1c2138)">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1.25"><path d="M15 8a3 3 0 11-6 0 3 3 0 016 0z"/><rect x="3" y="15" width="18" height="6" rx="1"/></svg>
+          <span>Zóna pro ženy</span>
+        </div>
+        <div class="gal-item__over">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>
+      </div>
+      <div class="gal-item sr sd2" data-cat="zeny">
+        <div class="gal-ph gal-ph--7">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1.25"><path d="M15 8a3 3 0 11-6 0 3 3 0 016 0z"/><rect x="3" y="15" width="18" height="6" rx="1"/></svg>
+          <span>Ženská zóna – vybavení</span>
+        </div>
+        <div class="gal-item__over">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>
+      </div>
+      <div class="gal-item sr sd3" data-cat="zazemi">
+        <div class="gal-ph gal-ph--8">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1.25"><path d="M15 8a3 3 0 11-6 0 3 3 0 016 0z"/><rect x="3" y="15" width="18" height="6" rx="1"/></svg>
+          <span>Bar &amp; zázemí</span>
+        </div>
+        <div class="gal-item__over">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>
+      </div>
+
+      <!-- Row 4 -->
+      <div class="gal-item gal-item--w sr sd1" data-cat="posilovna">
+        <div class="gal-ph gal-ph--9">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1.25"><path d="M15 8a3 3 0 11-6 0 3 3 0 016 0z"/><rect x="3" y="15" width="18" height="6" rx="1"/></svg>
+          <span>Panorama – celý sál</span>
+        </div>
+        <div class="gal-item__over">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>
+      </div>
+      <div class="gal-item sr sd2" data-cat="zazemi">
+        <div class="gal-ph gal-ph--1">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1.25"><path d="M15 8a3 3 0 11-6 0 3 3 0 016 0z"/><rect x="3" y="15" width="18" height="6" rx="1"/></svg>
+          <span>Vstup &amp; recepce</span>
+        </div>
+        <div class="gal-item__over">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <p style="text-align:center;font-size:.8125rem;color:var(--txt-s);margin-top:3rem" class="sr">
+      Fotografie jsou zástupné. Reálné snímky budou doplněny. <!-- Instrukce: Nahraďte gal-ph divy elementy &lt;img src="..." alt="..."&gt; -->
+    </p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="s s--dk2">
+  <div class="wrap" style="text-align:center">
+    <p class="eyebrow sr" style="justify-content:center">Přijďte osobně</p>
+    <h2 class="disp sr sd1" style="max-width:10ch;margin:0 auto 1.5rem">Živé prostory jsou ještě lepší.</h2>
+    <p class="body-lg txt-m sr sd2" style="max-width:42ch;margin:0 auto 2.5rem">Fotky nevyjádří vše. Přijďte se podívat osobně — ukážeme vám celé prostory bez závazků.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap" class="sr sd3">
+      <a href="kontakt.html" class="btn btn-p btn-lg">Kontakt &amp; adresa</a>
+      <a href="cenik.html" class="btn btn-g btn-lg">Ceník vstupů</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__top">
+      <div>
+        <div class="footer__logo"><img src="assets/city-gym-logo.png?v=6" alt="City Gym Brno"></div>
+        <p class="footer__tagline">Největší posilovna v centru Brna. 700 m² moderního vybavení, samostatná zóna pro ženy.</p>
+      </div>
+      <div>
+        <h4 class="footer__col-h">Navigace</h4>
+        <ul class="footer__links">
+          <li><a href="index.html">Domů</a></li>
+          <li><a href="posilovna.html">Posilovna</a></li>
+          <li><a href="zona-pro-zeny.html">Zóna pro ženy</a></li>
+          <li><a href="galerie.html">Galerie</a></li>
+          <li><a href="cenik.html">Ceník</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer__col-h">Otevírací doba</h4>
+        <div style="font-size:.875rem;color:var(--txt-m);line-height:2.1">
+          <span style="color:var(--white);font-weight:600">Po – Pá</span><br>6:30 – 22:00<br>
+          <span style="color:var(--white);font-weight:600">So – Ne</span><br>8:00 – 20:00
+        </div>
+      </div>
+      <div>
+        <h4 class="footer__col-h">Kontakt</h4>
+        <div class="footer__c-row"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg><p>Běhounská 22/24, Brno</p></div>
+        <div class="footer__c-row"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5 19.79 19.79 0 01.06 2.86 2 2 0 012 .68h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg><a href="tel:+420603993197">+420 603 993 197</a></div>
+        <div class="footer__c-row"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:citygym@seznam.cz">citygym@seznam.cz</a></div>
+      </div>
+    </div>
+    <div class="footer__bot">
+      <p class="footer__copy">© 2024 CITY GYM Brno. Všechna práva vyhrazena.</p>
+      <div class="footer__legal"><a href="#">Ochrana osobních údajů</a><a href="#">Obchodní podmínky</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  // Gallery filter
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const galItems = document.querySelectorAll('.gal-item');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      const cat = btn.dataset.filter;
+      galItems.forEach(item => {
+        const show = cat === 'all' || item.dataset.cat === cat;
+        item.style.opacity = show ? '1' : '0.2';
+        item.style.pointerEvents = show ? '' : 'none';
+      });
+    });
+  });
+</script>
+</body>
+</html>
