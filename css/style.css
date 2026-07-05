@@ -1026,3 +1026,17 @@ h3.disp-sm{font-family:var(--f-head);font-size:clamp(1.25rem,2.5vw,1.875rem);fon
   /* Keep icon a normal size, not oversized */
   .srv-card__icon svg{opacity:.65}
 }
+
+/* FIX · .s--intro background visible on mobile
+   background-attachment:fixed is broken on iOS Safari — the image either
+   disappears or shows only a sliver. Switch to scroll + cover on mobile. */
+@media(max-width:768px){
+  .s--intro{
+    background-image:url('../assets/city_gym_vevnitr.jpg');
+    background-attachment:scroll;
+    background-size:cover;
+    background-position:center center;
+    background-repeat:no-repeat;
+    min-height:600px;
+  }
+}
