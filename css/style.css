@@ -238,9 +238,36 @@ ul{list-style:none}
   animation:scrl 2s var(--ease2) infinite;
 }
 @keyframes scrl{0%{transform:translateX(-100%)}50%{transform:translateX(0)}100%{transform:translateX(100%)}}
-@keyframes hIn{to{opacity:1;transform:translateY(0)}}
+@keyframes hIn{
+  from{opacity:0;transform:translateY(28px) scale(.975)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+@keyframes hInR{
+  from{opacity:0;transform:translateX(28px) scale(.975)}
+  to{opacity:1;transform:translateX(0) scale(1)}
+}
 @media(prefers-reduced-motion:reduce){
-  .hero__eyebrow,.hero__title,.hero__sub,.hero__acts,.hero__hours{opacity:1;transform:none;animation:none}
+  .hero__eyebrow,.hero__title,.hero__sub,.hero__acts,.hero__hours,
+  .hero__logo-img,.hero__times,.hero__bottom,
+  .pg-hero .sr,.pg-hero .sr.fr{opacity:1;transform:none;animation:none}
+}
+
+/* ================================================
+   PG-HERO ENTRANCE ANIMATIONS (all sub-pages)
+   Elements use .sr (opacity:0 base) — we replace the
+   transition-based scroll-reveal with CSS animations.
+   ================================================ */
+.pg-hero .sr{
+  animation:hIn .82s var(--ease) .04s forwards;
+  transition:none !important;     /* prevent scroll-reveal transition fighting */
+}
+.pg-hero .sr.sd1{animation-delay:.12s}
+.pg-hero .sr.sd2{animation-delay:.22s}
+.pg-hero .sr.sd3{animation-delay:.32s}
+.pg-hero .sr.sd4{animation-delay:.42s}
+/* Elements that enter from the right (split second column in zona-pro-zeny pg-hero) */
+.pg-hero .sr.fr{
+  animation:hInR .9s var(--ease) .28s forwards;
 }
 
 /* Hero silhouette */
@@ -445,8 +472,12 @@ h3.disp-sm{font-family:var(--f-head);font-size:clamp(1.25rem,2.5vw,1.875rem);fon
    SERVICES GRID
    ================================================ */
 .srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+/* card-grid — 3-col responsive grid for zona-pro-zeny "Pro každou ženu" */
+.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+
 .srv-card{
-  padding:1rem 1rem 1rem 1.25rem;background:var(--white);border-radius:6px;border:1px solid var(--line-lt);
+  padding:1rem 1rem 1rem 1.25rem;background:var(--white);border-radius:6px;
+  /* border removed per user request — box feel unwanted on mobile */
   transition:transform .3s var(--ease),box-shadow .3s var(--ease);
   display:flex;align-items:center;gap:1rem;
   overflow:hidden;position:relative;
@@ -673,8 +704,10 @@ h3.disp-sm{font-family:var(--f-head);font-size:clamp(1.25rem,2.5vw,1.875rem);fon
   .footer__top{grid-template-columns:1fr 1fr}
 }
 @media(max-width:1024px){
-  .split{grid-template-columns:1fr;gap:3rem}
+  /* !important overrides pages that set grid-template-columns as inline style */
+  .split{grid-template-columns:1fr !important;gap:3rem !important}
   .srv-grid{grid-template-columns:repeat(2,1fr)}
+  .card-grid{grid-template-columns:repeat(2,1fr)}
   .price-card--feat{transform:none}
   .price-card--feat:hover{transform:translateY(-4px)}
 }
@@ -688,6 +721,8 @@ h3.disp-sm{font-family:var(--f-head);font-size:clamp(1.25rem,2.5vw,1.875rem);fon
   .nav__drawer{display:flex}
   .nav__veil{display:block}
   :root{--sy:clamp(3.5rem,8vw,5rem)}
+  /* Override inline-style grid columns across all pages */
+  .split{grid-template-columns:1fr !important;gap:2.5rem !important}
   .stats-row{grid-template-columns:1fr}
   .stat{border-right:none;border-bottom:1px solid var(--line)}
   .stat:last-child{border-bottom:none}
@@ -700,6 +735,7 @@ h3.disp-sm{font-family:var(--f-head);font-size:clamp(1.25rem,2.5vw,1.875rem);fon
   .footer__bot{flex-direction:column;align-items:flex-start}
   .hero__scroll{display:none}
   .srv-grid{grid-template-columns:1fr}
+  .card-grid{grid-template-columns:1fr;gap:1rem}
   .srv-card{flex-direction:column;align-items:flex-start;gap:1rem}
   .srv-card__icon{align-self:auto;width:64px;height:64px;order:-1;margin-right:0}
   .srv-card__icon svg{width:64px;height:64px;opacity:.5}
@@ -874,3 +910,130 @@ h3.disp-sm{font-family:var(--f-head);font-size:clamp(1.25rem,2.5vw,1.875rem);fon
     text-align:center;
   }
 }
+
+/* ================================================
+   ROUND 2 MOBILE OPTIMIZATIONS
+   ================================================ */
+
+/* ----
+   FIX 1 · Map placement — "1 minuta od Moravského náměstí"
+   The .split had inline grid-template-columns:1fr 1fr that couldn't be
+   overridden without !important. That's now fixed above (global .split rule).
+   Extra: centre the map and remove the sr.fr horizontal shift on mobile.
+   ---- */
+@media(max-width:768px){
+  /* Prevent the slide-from-right animation from pushing map off-screen */
+  .sr.fr{transform:none}
+  .sr.fr.vis{transform:translate(0)}
+  /* Map container — full width, proper height */
+  .sr.fr .map-box--live,
+  .map-box--live{
+    margin-inline:auto;
+  }
+}
+
+/* ----
+   FIX 2 · Posilovna — zone sections breathing room
+   Targets .s--zones class added to the zones section in posilovna.html.
+   ---- */
+@media(max-width:768px){
+  .s--zones{
+    padding-top:calc(var(--sy) + 2.5rem) !important;
+  }
+  .s--zones > .wrap > .split{
+    padding-bottom:2.5rem;
+    margin-bottom:2rem !important;
+    border-bottom:1px solid var(--line);
+  }
+  .s--zones > .wrap > .split:last-of-type{
+    border-bottom:none;
+    padding-bottom:0;
+    margin-bottom:0 !important;
+  }
+  /* Tighten inline margins/padding within zone text blocks */
+  .s--zones .split > div > [style*="margin-top:1rem"]{
+    margin-top:.625rem !important;
+  }
+  .s--zones .split > div > [style*="margin-bottom:1.75rem"]{
+    margin-bottom:1.25rem !important;
+  }
+}
+
+/* ----
+   FIX 3 · zona-pro-zeny.html — 3-col grids → 1-col on mobile
+   srv-grid class added to HTML; card-grid already in CSS above.
+   Also fix the page-hero split button row (items stack neatly).
+   ---- */
+@media(max-width:768px){
+  /* Items in srv-grid should have bottom spacing */
+  .srv-grid .srv-card{margin-bottom:.5rem}
+  .card-grid .card{margin-bottom:.5rem}
+  /* zona-pro-zeny pg-hero buttons — stack vertically */
+  .pg-hero .split > div > [style*="display:flex;gap:1rem"]{
+    flex-direction:column !important;
+    gap:.75rem !important;
+    width:100%;
+  }
+  .pg-hero .split > div > div .btn,
+  .pg-hero .split .btn{
+    width:100% !important;
+    justify-content:center !important;
+  }
+}
+
+/* ----
+   FIX 4 · cenik.html — "Co je zahrnuto" section
+   The split goes 1-col via the global rule. Additional polish:
+   more breathing room between feature items and service cards.
+   ---- */
+@media(max-width:768px){
+  /* "Co je zahrnuto" feature list */
+  .s--lt .feat-list{gap:1.125rem}
+  /* Doplňkové služby service cards */
+  .s--lt .split > div > [style*="padding:1.5rem"]{
+    padding:1.25rem !important;
+  }
+  .s--lt .split > div > div + div[style]{
+    margin-top:.625rem !important;
+  }
+}
+
+/* ----
+   FIX 5 · kontakt.html — "Jak nás přesně najít" + "Rychlý přehled"
+   The split goes 1-col via the global rule (overflow fixed automatically).
+   Reduce padding on the "Rychlý přehled" box on tiny phones.
+   ---- */
+@media(max-width:480px){
+  /* Rychlý přehled — tighter padding on very small phones */
+  .s--dk2 .sr.fr > div[style*="padding:2.5rem"]{
+    padding:1.5rem !important;
+  }
+}
+@media(max-width:768px){
+  /* Detailní popis — text blocks spacier */
+  .s--dk2 .split > div > [style*="font-size:.9375rem"]{
+    line-height:2 !important;
+  }
+}
+
+/* ----
+   FIX 8 · "Trénuj tam" section — fix background-attachment on iOS
+   background-attachment:scroll was set in the previous fix block.
+   The JS parallax (see main.js) handles the visual effect on mobile.
+   Ensure the section has an appropriate minimum height on mobile so
+   the photo is clearly visible even without parallax scroll.
+   ---- */
+@media(max-width:768px){
+  .s--intro{
+    min-height:85vw; /* keep photo visible even on short viewports */
+  }
+}
+
+/* ----
+   FIX 9 · "Více než posilovna" srv-card — no box border (global)
+   Border removed from .srv-card base styles above.
+   Add a subtle shadow instead so cards remain distinguishable
+   on the light background without the harsh rectangular outline.
+   ---- */
+.srv-card{box-shadow:0 2px 16px rgba(0,0,0,.06)}
+.srv-card:hover{box-shadow:0 8px 32px rgba(0,0,0,.10)}

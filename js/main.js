@@ -25,7 +25,9 @@ veil?.addEventListener('click', closeD);
 document.querySelectorAll('.nav__drawer a').forEach(a => a.addEventListener('click', closeD));
 
 // 4. Scroll reveal
-const srEls = document.querySelectorAll('.sr');
+// Elements inside .pg-hero use CSS animations (hIn/hInR) — skip them here
+// so the IntersectionObserver doesn't compete with the animations.
+const srEls = [...document.querySelectorAll('.sr')].filter(el => !el.closest('.pg-hero'));
 if (srEls.length) {
   const srObs = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); srObs.unobserve(e.target); } });
@@ -73,7 +75,24 @@ if (pxEls.length && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
   doPx();
 }
 
-// 8. FAQ
+// 8. Mobile parallax for .s--intro
+// background-attachment:fixed is broken on iOS Safari. On mobile/tablet we use
+// JS to shift background-position-y on scroll, recreating the parallax feel.
+const introSec = document.querySelector('.s--intro');
+if (introSec && !matchMedia('(prefers-reduced-motion:reduce)').matches) {
+  const introMq = matchMedia('(max-width:1024px)');
+  const doIntroParallax = () => {
+    if (!introMq.matches) return;
+    const rect = introSec.getBoundingClientRect();
+    const offset = (rect.top + rect.height / 2 - innerHeight / 2) * 0.28;
+    introSec.style.backgroundPositionY = `calc(35% + ${offset}px)`;
+  };
+  window.addEventListener('scroll', doIntroParallax, { passive: true });
+  introMq.addEventListener('change', doIntroParallax);
+  doIntroParallax();
+}
+
+// 9. FAQ
 document.querySelectorAll('.faq-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const ans = btn.nextElementSibling;
