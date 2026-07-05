@@ -357,7 +357,8 @@ h3.disp-sm{font-family:var(--f-head);font-size:clamp(1.25rem,2.5vw,1.875rem);fon
 .s--intro{
   position:relative;
   background-image:url('../assets/city_gym_vevnitr.jpg');
-  background-size:cover;
+  background-size:contain;
+  background-repeat:no-repeat;
   background-position:center;
   background-attachment:fixed;
   background-color:var(--dark);
