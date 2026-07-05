@@ -800,21 +800,7 @@ h3.disp-sm{font-family:var(--f-head);font-size:clamp(1.25rem,2.5vw,1.875rem);fon
   .hero__stats-sep{height:.65em}
 }
 
-/* ----
-   FIX 3 · "Trénuj tam, kde záleží na detailu" section
-   ----
-   background-attachment:fixed is essentially broken on iOS Safari and
-   many Android browsers — the background doesn't scroll with the page,
-   rendering the photo invisible or misaligned.
-   Fix: switch to scroll; ensure cover + good crop position.
-   ---- */
-@media(max-width:768px){
-  .s--intro{
-    background-attachment:scroll;
-    background-size:cover;
-    background-position:center 35%;
-  }
-}
+/* FIX 3 · "Trénuj tam" section — background-attachment:fixed kept as original (reverted) */
 
 /* ----
    FIX 4 · "1 minuta od Moravského náměstí" — map not visible
@@ -1016,24 +1002,26 @@ h3.disp-sm{font-family:var(--f-head);font-size:clamp(1.25rem,2.5vw,1.875rem);fon
   }
 }
 
-/* ----
-   FIX 8 · "Trénuj tam" section — fix background-attachment on iOS
-   background-attachment:scroll was set in the previous fix block.
-   The JS parallax (see main.js) handles the visual effect on mobile.
-   Ensure the section has an appropriate minimum height on mobile so
-   the photo is clearly visible even without parallax scroll.
-   ---- */
-@media(max-width:768px){
-  .s--intro{
-    min-height:85vw; /* keep photo visible even on short viewports */
-  }
-}
+/* FIX 8 · "Trénuj tam" section — reverted; background-attachment:fixed as originally authored */
 
 /* ----
-   FIX 9 · "Více než posilovna" srv-card — no box border (global)
-   Border removed from .srv-card base styles above.
-   Add a subtle shadow instead so cards remain distinguishable
-   on the light background without the harsh rectangular outline.
+   FIX 9 · "Více než posilovna" srv-card — remove box container on mobile
+   On mobile, the white card rectangle feels heavy. Strip it down to plain
+   icon + text on the section background; keep the desktop card intact.
    ---- */
-.srv-card{box-shadow:0 2px 16px rgba(0,0,0,.06)}
-.srv-card:hover{box-shadow:0 8px 32px rgba(0,0,0,.10)}
+@media(max-width:768px){
+  .srv-card{
+    background:transparent;
+    border-radius:0;
+    box-shadow:none;
+    padding:1rem 0;
+    border-bottom:1px solid var(--line-lt);
+  }
+  /* Remove bottom border from the last card in each grid */
+  .srv-grid .srv-card:last-child,
+  .srv-grid > .srv-card:nth-last-child(1){
+    border-bottom:none;
+  }
+  /* Keep icon a normal size, not oversized */
+  .srv-card__icon svg{opacity:.65}
+}

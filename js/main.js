@@ -75,24 +75,7 @@ if (pxEls.length && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
   doPx();
 }
 
-// 8. Mobile parallax for .s--intro
-// background-attachment:fixed is broken on iOS Safari. On mobile/tablet we use
-// JS to shift background-position-y on scroll, recreating the parallax feel.
-const introSec = document.querySelector('.s--intro');
-if (introSec && !matchMedia('(prefers-reduced-motion:reduce)').matches) {
-  const introMq = matchMedia('(max-width:1024px)');
-  const doIntroParallax = () => {
-    if (!introMq.matches) return;
-    const rect = introSec.getBoundingClientRect();
-    const offset = (rect.top + rect.height / 2 - innerHeight / 2) * 0.28;
-    introSec.style.backgroundPositionY = `calc(35% + ${offset}px)`;
-  };
-  window.addEventListener('scroll', doIntroParallax, { passive: true });
-  introMq.addEventListener('change', doIntroParallax);
-  doIntroParallax();
-}
-
-// 9. FAQ
+// 8. FAQ
 document.querySelectorAll('.faq-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const ans = btn.nextElementSibling;
